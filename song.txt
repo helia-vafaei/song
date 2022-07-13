@@ -1,0 +1,109 @@
+live_loop :flibble do
+  sample :bd_haus, rate:1,amp: 1.5
+  sleep 0.5
+end
+
+in_thread do
+  loop do
+    sample :drum_heavy_kick,amp: 1.5
+    sleep 0.5
+  end
+end
+
+use_synth :piano
+2.times do
+  play chord( :Db4, :major) , release:8
+  sleep 1.75
+  play chord( :Db4, :major) , release:8
+  sleep 0.5
+  play chord( :Db4, :major) , release:8
+  sleep 1.75
+  play chord( :B3, :major) , release:8
+  sleep 1.75
+  play chord( :B3, :major) , release:8
+  sleep 0.5
+  play chord( :B3, :major) , release:8
+  sleep 1.75
+end
+
+use_synth :piano
+2.times do
+  play chord( :Db4, :major) , release:8
+  sleep 0.5
+  play chord( :Db4, :major) , release:8
+  sleep 0.25
+  play chord( :Db4, :major) , release:8
+  sleep 0.5
+  play chord( :B3, :major) , release:8
+  sleep 0.5
+  play chord( :B3, :major) , release:8
+  sleep 0.25
+  play chord( :B3, :major) , release:8
+  sleep 0.5
+end
+
+1.times
+sample :drum_cymbal_open
+sleep 1.5
+
+in_thread do
+  loop do
+    sample :drum_heavy_kick
+    sleep 0.5
+  end
+end
+
+
+
+4.times do
+  sample :drum_snare_hard
+  sleep 1
+end
+
+in_thread do
+  sleep 0.25
+  loop do
+    sample :drum_cymbal_closed
+    sleep 4
+  end
+end
+
+
+in_thread do
+  loop do
+    sample :drum_cymbal_open , amp: 0.2
+    sleep 4
+  end
+end
+
+
+in_thread do
+  sleep 3.9
+  loop do
+    sample :drum_snare_soft
+    sleep 4
+  end
+end
+
+
+use_synth :piano
+2.times do
+  play :Cb4
+  sleep 1.75
+  play :Cb4
+  sleep 0.5
+  play :Cb4
+  sleep 1.75
+  play :As3
+  sleep 1.75
+  play :As3
+  sleep 0.5
+  play :As3
+  sleep 1.75
+end
+
+
+
+
+
+
